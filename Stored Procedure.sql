@@ -51,5 +51,14 @@ begin
    delete from [Stats] where Id = @Id
 end
 
+
+--USED TO CALL A VIEW
+go
+create procedure Sp_View_Order_V
+ @UserId int
+as
+begin
+  select * from Order_V where Id = @UserId 
+end
  
 
