@@ -10,4 +10,9 @@ select UserId,
 	   Amount/(select TotalOrders
 	           from Stats where Id = StatId) * 100
        from [Order] where UserId = 1
+       
+--SELECT BETWEEN
+select *
+  from [Order]
+ where Amount between 100 and 200       
 
