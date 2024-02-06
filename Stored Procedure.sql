@@ -14,7 +14,6 @@ Begin
    insert into [Stats] values(@UserId, @Month, @Year, @TotalSales, @TotalOrders, @TotalProducts,@TotalExpenses)     
 end
  
-
 Go
 Create procedure [Sp_Update_Stats]
    @Id int,
@@ -35,7 +34,6 @@ Begin
    where Id = @Id
 end
 
-
 Go
 Create procedure [Sp_Delete_Stats]
    @Id int,
@@ -51,7 +49,6 @@ begin
    delete from [Stats] where Id = @Id
 end
 
-
 --USED TO CALL A VIEW
 go
 create procedure Sp_View_Order_V
@@ -60,5 +57,3 @@ as
 begin
   select * from Order_V where Id = @UserId 
 end
- 
-
