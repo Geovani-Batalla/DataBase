@@ -8,5 +8,3 @@ select U.[Name],
 	   U.[Id]
  From [User] U, [Stats] S
 where S.UserId = U.Id
-
-  
