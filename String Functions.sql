@@ -10,7 +10,3 @@ select LEN(LastName) from [User] where Id = 2
 
 --REPLACE
 SELECT REPLACE('Nombre: ', LastName, [Name]) from [User] where Id = 2
-
-
-
-
