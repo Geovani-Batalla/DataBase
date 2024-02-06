@@ -1,18 +1,17 @@
-select * 
-  from [Order] [order] inner join [User] [user] 
-    on [order].UserId = [user].Id
-where [user].Id = 1 and [order].Step != 0 and [Order].Step != 2 order by [order].Amount asc
+--INNER JOIN 
+select O.ID_Ruta_Preventa, R.Nombre, R.ID_Sucursal, SUM(DO.Importe_Entregado) as Total, SUM(DO.Descuento_Entregado) as Descuento from Detalle_Ordenes as DO 
+join Ordenes as O on DO.ID_Orden = O.ID 
+join Rutas as R on O.ID_Ruta_Preventa = R.ID
+where YEAR(O.Fecha_Entrega) = 2023 
+and (O.Estatus = 'ENTREGADA' or O.Estatus = 'ENTREGA_PARCIAL') 
+and O.Activo = 1 and DO.Importe_Entregado > 0
+group by O.ID_Ruta_Preventa, R.Nombre, r.ID_Sucursal 
+order by R.ID_Sucursal, R.Nombre
 
-select SUM(Amount) from [Order] where [UserId] = 1
-  
-select UserId,
-       StatId, 
-	   Amount/(select TotalOrders
-	           from Stats where Id = StatId) * 100
-       from [Order] where UserId = 1
-       
---SELECT BETWEEN
-select *
-  from [Order]
- where Amount between 100 and 200       
-
+select v.ID_Ruta, r.Nombre, sum(DV.Importe) as Importe, sum(DV.Descuento) as Descuento from Detalle_Ventas as DV join Ventas as V on DV.ID_Venta = V.ID
+join Rutas as R on V.ID_Ruta = R.ID
+where YEAR(V.Fecha_creacion) = 2023 
+and V.Activo = 1 
+and R.Tipo_Ruta = 'PREVENTA'
+group by V.ID_Ruta, R.Nombre, r.ID_Sucursal 
+order by R.ID_Sucursal, R.Nombre
