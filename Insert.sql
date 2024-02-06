@@ -1,4 +1,4 @@
---INSERT DE DATOS MANUAL
+--INSERT MANUAL
 Insert into [User]
        ([Name],[LastName],[Password],[PhoneNumber], [UserGuid], [Gender]) 
 values
@@ -14,7 +14,7 @@ insert into [Order]
 values
        (1,1,100,1)
 
---INSERT DE DATOS CON IDENTITY PESONALIZADA
+--INSERT CON IDENTITY PESONALIZADA
 SET IDENTITY_INSERT [User] ON
 insert into [User]
        (Id, [Name], LastName, Password, PhoneNumber, UserGuid, Gender) 
