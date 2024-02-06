@@ -63,8 +63,7 @@ Create table [Order]
   constraint Pk_Order primary key(Id)
 )
 
-
---AÑADIR O ELIMINAR CAMPOS
+--AÃ‘ADIR O ELIMINAR CAMPOS
 alter table [User] add Gender nvarchar(1) not null default 'U'
 alter table [User] add Birthdate date null
 
@@ -107,10 +106,3 @@ revoke User_Rol from User_Admin
 
 --ELIMINAR TABLA
 drop table [Order]
-
-
-
-
-
-
-
