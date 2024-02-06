@@ -17,7 +17,6 @@ if(@UserId = 1)
    end catch;
 end
 	        
-
 create trigger Tr_Update_User_Mirror on [User]
 after update
 as
@@ -43,8 +42,6 @@ if(@UserId = 1)
    end catch;
 end
 	    
-
-
 create trigger Tr_Delete_User_Mirror on [User]
 after delete
 as
@@ -63,9 +60,3 @@ if(@UserId = 1)
    begin catch
    end catch;
 end
-
-
-
-
-
-
